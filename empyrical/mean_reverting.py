@@ -10,7 +10,7 @@ def ornstein_uhlenbeck(X: pd.Series, delta_t: float = 1/252):
     results = model.fit()
     b = results.params[0]
     residuals = results.resid
-    k = -np.log(b) / delta_t
+    k: float = -np.log(b) / delta_t
     m = X.mean()
-    sigma = np.sqrt(np.var(residuals) / (2*k))
+    sigma: float = np.sqrt(np.var(residuals) / (2*k))
     return k, m, sigma
